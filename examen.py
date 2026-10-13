@@ -18,7 +18,16 @@ cant_contrasenias_total = 0
 salida_bucle_principal = True
 
 while salida_bucle_principal == True:
-    mostrar_menu_principal()
+    print("""#--------------------------------------#
+            Menú Principal
+#--------------------------------------#
+    1)  Generar contraseñas
+    2)  Buscar contraseña
+    3)  Informar estadísticas
+    4)  Ordenar y mostrar contraseñas
+    5)  Salir
+#--------------------------------------#
+    """)
 
     opcion = int(input("Elegir opción: "))
 
@@ -101,20 +110,22 @@ while salida_bucle_principal == True:
                 #-------------------------------------------#
                 else:
                     orden = input("● Ascendente --> Asc\n● Descendente --> Desc\n\nDe que manera ordenar las listas: ")
+                    if orden == "asc":
+                        mostrar_orden = "Ordenado ascendentemente"
+                    elif orden == "desc":
+                        mostrar_orden = "Ordenado descendentemente"
+                    else:
+                        while (orden != "asc" and orden != "desc"):
+                            print("Actualmentes las listas se encuentran sin orden. Por favor, seleccionar un orden válido")
+                            print("● Ascendente --> Asc\n● Descendente --> Desc\n\n")
+                            orden = input("De que manera ordenar las listas: ")
                     limpiar_teclado_os()
                     print("#--------------------------------------#")
                     ordenar_contrasenias(listas_contra_creadas, orden)
                     print("Contraseñas creadas:\n")
                     mostrar_contrasenias(listas_contra_creadas)
                     #-------------------------------------------#
-                    if orden == "asc":
-                        orden = "Ordenado ascendentemente"
-                    elif orden == "desc":
-                        orden = "Ordenado descendentemente"
-                    else:
-                        orden = "Sin orden"
-                    #-------------------------------------------#
-                    print(f"\n{orden} | Cantidad de contraseñas creadas: {cant_contrasenias_total}")
+                    print(f"\n{mostrar_orden} | Cantidad de contraseñas creadas: {cant_contrasenias_total}")
                     print("#--------------------------------------#")
                     vuelta_menu = input("Presionar {Enter} para volver al menú principal: ")
                     limpiar_teclado_os()

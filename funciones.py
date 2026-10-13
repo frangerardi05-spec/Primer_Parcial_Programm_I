@@ -16,12 +16,13 @@ def generar_contrasenias(cant_contrasenias:int, lista_contra_creadas:list):
             cant_contrasenias (int) |   lista_contra_creadas (list)
     """
     from funciones import confirmar_caracteres_contrasenia
+    from funciones import existe_en_lista
     import random
     #-------------------------------------------#
     contrasenia_nueva = ""
     for i in range (0, cant_contrasenias):
-        while (confirmar_caracteres_contrasenia(contrasenia_nueva) == False and
-               contrasenia_nueva == lista_contra_creadas[i]):
+        while (confirmar_caracteres_contrasenia(contrasenia_nueva) == False or
+               existe_en_lista(contrasenia_nueva, lista_contra_creadas) == True):
             contrasenia_nueva = ""
             for j in range (0, random.randint(8, 15)):
                 num_random = (random.randint(1,3))
@@ -35,6 +36,23 @@ def generar_contrasenias(cant_contrasenias:int, lista_contra_creadas:list):
         contrasenia_nueva = ""
     #-------------------------------------------#
 
+#-------#
+# Función que verifica si una contraseña existe o no en la lista con contraseñas creadas
+def existe_en_lista(contrasenia:str, lista_contra_creadas:list)->bool:
+    """
+    Función que recorre la lista con contraseñas creadas y devuelve True si el elemento está en ella, False si no.
+
+    Recibe dos parámetros:
+        contrasenia (str)  |  lista_contra_creadas (list)
+    
+    Retorna un booleano si la contraseña creada ya existe o no en la lista.
+    """
+    existe = False
+    for i in lista_contra_creadas:
+        if i == contrasenia:
+            existe = True
+            break
+    return existe
 #-------#
 # 1 (bis) | Asegurarse que las contraseñas creadas cumplan con las 3 condiciones:
 #         |     1) Tener al menos una mayúscula

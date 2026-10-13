@@ -111,16 +111,22 @@ while salida_bucle_principal == True:
                 else:
                     orden = input("● Ascendente --> Asc\n● Descendente --> Desc\n\nDe que manera ordenar las listas: ")
                     orden = cambiar_mayusculas_minusculas(orden)
-                    if orden == "asc" or orden == "ASC":
+                    if orden == "asc":
                         mostrar_orden = "Ordenado ascendentemente"
-                    elif orden == "desc" or orden == "DESC":
+                    elif orden == "desc":
                         mostrar_orden = "Ordenado descendentemente"
                     else:
                         while (orden != "asc" and orden != "desc"):
+                            limpiar_teclado_os()
+                            print("#--------------------------------------#")
                             print("Actualmentes las listas se encuentran sin orden. Por favor, seleccionar un orden válido")
                             print("● Ascendente --> Asc\n● Descendente --> Desc\n\n")
                             orden = input("De que manera ordenar las listas: ")
                             orden = cambiar_mayusculas_minusculas(orden)
+                            if orden == "asc":
+                                mostrar_orden = "Ordenado ascendentemente"
+                            elif orden == "desc":
+                                mostrar_orden = "Ordenado descendentemente"
                     limpiar_teclado_os()
                     print("#--------------------------------------#")
                     ordenar_contrasenias(listas_contra_creadas, orden)

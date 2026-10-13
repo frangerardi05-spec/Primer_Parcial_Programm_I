@@ -1,24 +1,6 @@
 #---------------------------- Primer Parcial de Francisco Gerardi ----------------------------#
 
 #-----------------------------------------------------------#
-# Mostrar menú principal
-
-def mostrar_menu_principal()->str:
-    """
-    Función que muestra el menú principal del programa {examen.py}, que no recibe ningún parámetro.
-    """
-    print("""#--------------------------------------#
-            Menú Principal
-#--------------------------------------#
-    1)  Generar contraseñas
-    2)  Buscar contraseña
-    3)  Informar estadísticas
-    4)  Ordenar y mostrar contraseñas
-    5)  Salir
-#--------------------------------------#
-    """)
-
-#-----------------------------------------------------------#
 # 1 | Generar contraseñas
 
 def generar_contrasenias(cant_contrasenias:int, lista_contra_creadas:list):
@@ -38,7 +20,8 @@ def generar_contrasenias(cant_contrasenias:int, lista_contra_creadas:list):
     #-------------------------------------------#
     contrasenia_nueva = ""
     for i in range (0, cant_contrasenias):
-        while confirmar_caracteres_contrasenia(contrasenia_nueva) == False:
+        while (confirmar_caracteres_contrasenia(contrasenia_nueva) == False and
+               contrasenia_nueva == lista_contra_creadas[i]):
             contrasenia_nueva = ""
             for j in range (0, random.randint(8, 15)):
                 num_random = (random.randint(1,3))
@@ -261,7 +244,7 @@ Seleccionar una opción válida.
             print(f"2) El promedio de caracteres en mayúsculas es de {b} por contraseña almacenada.")
             c = total_minusculas / cant_contrasenias
             print(f"3) El promedio de caracteres en minúsculas es de {c} por contraseña almacenada.")
-            d = total_minusculas / cant_contrasenias
+            d = total_numeros / cant_contrasenias
             print(f"4) El promedio de caracteres númericos enteros positivos es de {d} por contraseña almacenada.")
             print("#--------------------------------------#")
             vuelta_menu_estadistica = input("Presionar {Enter} para volver al menú de estadísticas: ")

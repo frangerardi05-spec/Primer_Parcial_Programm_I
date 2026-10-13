@@ -294,19 +294,19 @@ def ordenar_contrasenias(lista_contra_creadas:list, orden:str):
     Recibe dos parámetros: listas_contra_creadas (list) | orden (str)
     """
     #-------------------------------------------#
-    if orden == "asc":
+    if orden == "asc" or "ASC":
         orden = True
-    elif orden == "desc":
+    elif orden == "desc" or "DESC":
         orden = False
+    else:
+        print("Con ese parámetro, no se puede realizar el ordenamiento.")
     #-------------------------------------------#
     for i in range(len(lista_contra_creadas)-1):
         for j in range(i+1, len(lista_contra_creadas)):
-            if (orden == True and ((lista_contra_creadas[i] > lista_contra_creadas[j])) or
-                orden == False and ((lista_contra_creadas[i] < lista_contra_creadas[j]))):
+            if ((orden == True and (lista_contra_creadas[i] > lista_contra_creadas[j])) or
+                (orden == False and (lista_contra_creadas[i] < lista_contra_creadas[j]))):
                 intercambiar_elementos(lista_contra_creadas, i, j)
     #-------------------------------------------#
-    else:
-        print("No se puede realizar el ordenamiento.")
 #-------#
 # 4 (2/2) | Mostrar contraseñas
 

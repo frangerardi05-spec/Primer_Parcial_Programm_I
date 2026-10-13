@@ -366,8 +366,7 @@ def cambiar_mayusculas_minusculas(orden:str,cambio:int = 1)->str:
 
     El parametro opcional solo recibe dos opciones {1} o {2}
         cambio (int) = 1 ---> Convierte todo el texto a minúscula
-        cambio (int) = 2 ---> Convierte todo el texto a mayúscula
-        cambio (int) = n ---> Tira un mensaje diciendo los parámetros que se admiten
+        cambio (int) = n ---> Convierte todo el texto a mayúscula
 
     Retorna la nueva cadena de caracteres de la variable {orden:str}
     """
@@ -382,13 +381,11 @@ def cambiar_mayusculas_minusculas(orden:str,cambio:int = 1)->str:
                 else:
                     orden_nuevo += i
                 orden = orden_nuevo
-            case 2:
+            case _:
                 caracter_minus = ord(i)
                 if (caracter_minus >= 97 and caracter_minus <= 122):
                     orden_nuevo += chr(caracter_minus - 32)
                 else:
                     orden_nuevo += i
                 orden = orden_nuevo
-            case _:
-                print("Solo se admiten como parametros opcionales el 1 y el 2.")
     return orden

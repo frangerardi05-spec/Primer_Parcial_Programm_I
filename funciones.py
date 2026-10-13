@@ -109,7 +109,7 @@ def buscar_contrasenias(contrasenia_a_buscar:str, lista_contra_creadas:list):
         formato_valido = True
     #-------------------------------------------#
     if formato_valido == False:
-        print("""La contraseña ingresada debe cumplir con las siguientes condiciones:
+        print("""Formato inválido.\nLa contraseña ingresada debe cumplir con las siguientes condiciones:
         1| Que tengan estas 3 otras condiciones (esto se logra gracias a otra función dentro de esta):
             a) Tener al menos una mayúscula
             b) Tener al menos una minúscula
@@ -293,28 +293,12 @@ def ordenar_contrasenias(lista_contra_creadas:list, orden:str):
 
     Recibe dos parámetros: listas_contra_creadas (list) | orden (str)
     """
-    from funciones import cambiar_mayusculas_minusculas
     #-------------------------------------------#
-    cambiar_mayusculas_minusculas(orden)
-    #-------------------------------------------#
-    if orden == "asc":
-        orden = True
-    elif orden == "desc":
-        orden = False
-    else:
-        orden = None
-    #-------------------------------------------#
-    if orden != None:
-        for i in range(len(lista_contra_creadas)-1):
-            for j in range(i+1, len(lista_contra_creadas)):
-                if (orden == True and ((lista_contra_creadas[i] > lista_contra_creadas[j]) or
-                                    (lista_contra_creadas[i] == lista_contra_creadas[j])) or
-                    orden == False and ((lista_contra_creadas[i] < lista_contra_creadas[j]) or
-                                    (lista_contra_creadas[i] == lista_contra_creadas[j]))):
-                    intercambiar_elementos(lista_contra_creadas, i, j)
-    elif orden == None:
-        print("Sin aclarar el ordenamiento de forma Ascendente o Descendente," \
-              " las contraseñas se mostrarán en base al orden de creación.")
+    for i in range(len(lista_contra_creadas)-1):
+        for j in range(i+1, len(lista_contra_creadas)):
+            if (orden == True and ((lista_contra_creadas[i] > lista_contra_creadas[j])) or
+                orden == False and ((lista_contra_creadas[i] < lista_contra_creadas[j]))):
+                intercambiar_elementos(lista_contra_creadas, i, j)
 
 #-------#
 # 4 (2/2) | Mostrar contraseñas
@@ -389,3 +373,4 @@ def cambiar_mayusculas_minusculas(orden:str,cambio:int = 1)->str:
                     orden_nuevo += i
                 orden = orden_nuevo
     return orden
+

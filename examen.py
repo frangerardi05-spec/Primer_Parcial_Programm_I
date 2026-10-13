@@ -2,12 +2,12 @@
 
 #Importo las funciones
 import funciones
-from funciones import mostrar_menu_principal
 from funciones import generar_contrasenias
 from funciones import buscar_contrasenias
 from funciones import informar_estadisticas
 from funciones import ordenar_contrasenias
 from funciones import mostrar_contrasenias
+from funciones import cambiar_mayusculas_minusculas
 
 from funciones import limpiar_teclado_os
 #-----------------------------------------------------------#
@@ -110,15 +110,17 @@ while salida_bucle_principal == True:
                 #-------------------------------------------#
                 else:
                     orden = input("● Ascendente --> Asc\n● Descendente --> Desc\n\nDe que manera ordenar las listas: ")
-                    if orden == "asc":
+                    cambiar_mayusculas_minusculas(orden)
+                    if orden == "asc" or orden == "ASC":
                         mostrar_orden = "Ordenado ascendentemente"
-                    elif orden == "desc":
+                    elif orden == "desc" or orden == "DESC":
                         mostrar_orden = "Ordenado descendentemente"
                     else:
                         while (orden != "asc" and orden != "desc"):
                             print("Actualmentes las listas se encuentran sin orden. Por favor, seleccionar un orden válido")
                             print("● Ascendente --> Asc\n● Descendente --> Desc\n\n")
                             orden = input("De que manera ordenar las listas: ")
+                            cambiar_mayusculas_minusculas(orden)
                     limpiar_teclado_os()
                     print("#--------------------------------------#")
                     ordenar_contrasenias(listas_contra_creadas, orden)

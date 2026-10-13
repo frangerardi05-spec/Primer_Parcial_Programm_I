@@ -14,7 +14,7 @@ from funciones import limpiar_teclado_os
 # Variables a utilizar:
 listas_contra_creadas = []
 cant_contrasenias_total = 0
-
+contrasenias_creadas = False
 salida_bucle_principal = True
 
 while salida_bucle_principal == True:
@@ -43,6 +43,7 @@ while salida_bucle_principal == True:
                     cant_contrasenias = int(input("Cantidad de contraseñas a crear: "))
                     #-------------------------------------------#
                     if cant_contrasenias > 0:
+                        contrasenias_creadas = True
                         cant_contrasenias_total += cant_contrasenias
                         generar_contrasenias(cant_contrasenias, listas_contra_creadas)
                         print("\n#--------------------------------------#\n")
@@ -69,7 +70,7 @@ while salida_bucle_principal == True:
     #-------------------------------------------#
     # case {2} que ejecuta la función que valida y busca las contraseñas generadas
             case 2:
-                if cant_contrasenias_total == 0:
+                if contrasenias_creadas == False:
                     print("#--------------------------------------#")
                     print("Todavía no se ha creado ninguna contraseña.\nPor favor seleccionar en el menú principal:" \
                     "\n\n------->   [1] Generar contraseñas\n")
@@ -87,7 +88,7 @@ while salida_bucle_principal == True:
     #-------------------------------------------#
     # case {3} que ejecuta la función que muestra las estadísticas de las contraseñas creadas
             case 3:
-                if cant_contrasenias_total == 0:
+                if contrasenias_creadas == False:
                     print("#--------------------------------------#")
                     print("Todavía no se ha creado ninguna contraseña.\nPor favor seleccionar en el menú principal:" \
                     "\n\n------->   [1] Generar contraseñas\n")
@@ -102,7 +103,7 @@ while salida_bucle_principal == True:
     # case {4}
             case 4:
                 #-------------------------------------------#
-                if cant_contrasenias_total == 0:
+                if contrasenias_creadas == False:
                     print("#--------------------------------------#")
                     print("Todavía no se ha creado ninguna contraseña.\nPor favor seleccionar en el menú principal:" \
                     "\n\n------->   [1] Generar contraseñas\n")

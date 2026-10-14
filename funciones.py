@@ -380,3 +380,4 @@ def cambiar_mayusculas_minusculas(orden:str,cambio:int = 1)->str:
                     orden_nuevo += i
                 orden = orden_nuevo
     return orden
+
